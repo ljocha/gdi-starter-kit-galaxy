@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="htsget">
+        <install version="1.0">
+            <actions>
+                <action type="setup_virtualenv">htsget</action>
+            </actions>
+        </install>
+    </package>
+</tool_dependency>
