@@ -1,10 +1,9 @@
-<tool id="gdi-sk-htsget" name="GDI Starter Kit htsget" version="0.1.0+galaxy7" python_template_version="3.5">
+<tool id="gdi-sk-htsget" name="GDI Starter Kit htsget" version="0.1.0+galaxy8" python_template_version="3.5">
     <requirements>
         <requirement type="package" version="0.2.6">htsget</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        env; 
-        htsget --bearer-token '$token' --output '$output1' http://'$server'/reads/s3/'$file'
+        htsget --bearer-token `cat '$token'` --output '$output1' http://'$server'/reads/s3/'$file'
     ]]></command>
     <inputs>
         <param type="data" name="token" format="txt" />

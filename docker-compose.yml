@@ -23,6 +23,7 @@ services:
       - dockerhost:host-gateway
     environment:
       - ENABLE_TTS_INSTALL=True
+      - GALAXY_CONFIG_FILE=/export/config/galaxy.yml
 
 networks:
   public:
