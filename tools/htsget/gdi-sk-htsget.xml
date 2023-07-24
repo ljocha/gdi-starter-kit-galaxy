@@ -1,4 +1,4 @@
-<tool id="gdi-sk-htsget" name="GDI Starter Kit htsget" version="0.1.0+galaxy4" python_template_version="3.5">
+<tool id="gdi-sk-htsget" name="GDI Starter Kit htsget" version="0.1.0+galaxy5" python_template_version="3.5">
     <requirements>
         <requirement type="package" version="0.2.6">htsget</requirement>
     </requirements>
