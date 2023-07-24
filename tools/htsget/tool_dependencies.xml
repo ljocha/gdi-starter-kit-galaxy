@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <tool_dependency>
-    <package name="htsget">
+    <package name="htsget" version="0.2.6">
         <install version="1.0">
             <actions>
-                <action type="setup_virtualenv">htsget</action>
+                <action type="setup_virtualenv">htsget=0.2.6</action>
             </actions>
         </install>
     </package>
