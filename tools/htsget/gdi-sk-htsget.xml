@@ -1,17 +1,18 @@
-<tool id="gdi-sk-htsget" name="GDI Starter Kit htsget" version="0.1.0+galaxy8" python_template_version="3.5">
+<tool id="gdi-sk-htsget" name="GDI Starter Kit htsget" version="0.1.0+galaxy9" python_template_version="3.5">
     <requirements>
         <requirement type="package" version="0.2.6">htsget</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        htsget --bearer-token `cat '$token'` --output '$output1' http://'$server'/reads/s3/'$file'
+        export CURL_CA_BUNDLE=/shared/cert/ca.crt; 
+        htsget --bearer-token `cat '$token'` --output '$output1' '$server/reads/s3/$file'
     ]]></command>
     <inputs>
         <param type="data" name="token" format="txt" />
-        <param type="text" name="server" label="Server endpoint (don't change in GDI starter kit)" value="server:3000"/>
+        <param type="text" name="server" label="Server endpoint (don't change in GDI starter kit)" value="https://server:3000"/>
         <param type="text" name="file" label="File name, e.g. 'EGAD74900000101/dummy_gdi.eu/NA12878.bam'" />
     </inputs>
     <outputs>
-        <data name="output1" label="Retrieved file" format="dat" />
+        <data name="output1" label="Retrieved file"/>
     </outputs>
     <tests>
       <test>
