@@ -6,11 +6,11 @@ services:
       - 8021:21
       - 8022:22
     privileged: false
-#    healthcheck:
-#      test: ["CMD", "curl", "-fkq", "http://localhost:8010/health.html"]
-#      interval: 5s
-#      timeout: 5s
-#      retries: 3
+    healthcheck:
+      test: ["CMD", "curl", "-fkq", "http://localhost:80/"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
 #    environment: 
 #    - CURL_CA_BUNDLE=/shared/cert/ca.crt
     networks:
@@ -24,6 +24,21 @@ services:
     environment:
       - ENABLE_TTS_INSTALL=True
       - GALAXY_CONFIG_FILE=/export/config/galaxy.yml
+
+  install_tool:
+    container_name: install_tool
+    image: curlimages/curl
+    command:
+      - /bin/sh
+      - /install_tool.sh
+    volumes:
+      - ./scripts/install_tool.sh:/install_tool.sh
+    depends_on:
+      galaxy:
+        condition: service_healthy
+    networks:
+      - public
+
 
 networks:
   public:
