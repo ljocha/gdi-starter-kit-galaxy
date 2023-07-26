@@ -12,9 +12,17 @@ On the other hand, the setup does not prevent malicious user, once (s)he gets ac
 
 1. start [starter-kit-storage-and-interfaces](https://github.com/GenomicDataInfrastructure/starter-kit-storage-and-interfaces) according to the instructions; _Demo_ mode will work out of the box, use of LS-AAI-mock of full LS AAI would require some tweaking
 2. start [starter-kit-htsget](https://github.com/GenomicDataInfrastructure/starter-kit-htsget) according to the instructions on the same machine
-3. run `docker-compose up` in a clone of this repo on the same machine; this step starts the Galaxy container and installs the custom tool `gdi_sk` from [test toolshed](https://testtoolshed.g2.bx.psu.edu/)
-4. run `docker-compose restart galaxy`; this is required for Galaxy to pick up the tool's dependencies (htsget client) correctly
-5. check Galaxy is running at http://localhost:8088/
+3. run
+```sh
+docker-compose up -d
+```
+in a clone of this repo on the same machine; this step starts the Galaxy container and installs the custom tool `gdi_sk` from [test toolshed](https://testtoolshed.g2.bx.psu.edu/)
+5. run
+```sh
+docker-compose restart galaxy
+```
+this is required for Galaxy to pick up the tool's dependencies (htsget client) correctly
+6. check Galaxy is running at http://localhost:8088/
 
 ## Running the GDI starter kit download tool
 
