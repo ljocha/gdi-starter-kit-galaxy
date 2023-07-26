@@ -18,5 +18,7 @@ On the other hand, the setup does not prevent malicious user, once (s)he gets ac
 ## Running the GDI starter kit download tool
 
 1. Retrieve OICD bearer token; if the demo OIDC from starter-kit-storage-and-interfaces is running, the command
+   
     curl -k -s -S https://localhost:8080/tokens | jq -r '.[0]' > token.txt
+
 should work.
