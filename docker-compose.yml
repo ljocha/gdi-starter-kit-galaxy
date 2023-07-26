@@ -39,6 +39,14 @@ services:
     networks:
       - public
 
+  dummy:
+    depends_on:
+      install_tool:
+        condition: service_completed_successfully
+    image: curlimages/curl
+    command:
+      - yes
+
 
 networks:
   public:
