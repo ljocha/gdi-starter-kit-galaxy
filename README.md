@@ -14,11 +14,20 @@ On the other hand, the setup does not prevent malicious user, once (s)he gets ac
 2. start [starter-kit-htsget](https://github.com/GenomicDataInfrastructure/starter-kit-htsget) according to the instructions on the same machine
 3. run `docker-compose up` in a clone of this repo on the same machine; this step starts the Galaxy container and installs the custom tool `gdi_sk` from [test toolshed](https://testtoolshed.g2.bx.psu.edu/)
 4. run `docker-compose restart galaxy`; this is required for Galaxy to pick up the tool's dependencies (htsget client) correctly
+5. check Galaxy is running at http://localhost:8088/
 
 ## Running the GDI starter kit download tool
 
-1. Retrieve OICD bearer token; if the demo OIDC from starter-kit-storage-and-interfaces is running, the command
+1. Retrieve OICD bearer token; if the demo OIDC from starter-kit-storage-and-interfaces is running, run
 ```sh
 curl -k -s -S https://localhost:8080/tokens | jq -r '.[0]' > token.txt
 ```
-should work.
+2. Upload `token.txt` to Galaxy at http://localhost:8088
+3. Pick **GDI Starter Kit htsget** from the _Get Data_ menu
+4. Select the uploaded `token.txt` as the token input
+5. Fill in required filename, the suggested "EGAD74900000101/dummy_gdi.eu/NA12878.bam" can be used for demo purposes
+6. Click on **Execute**; if everything works, the downloaded file appears in the current Galaxy history (on the right) in a while
+
+## Using the GDI starter kit download in a workflow
+
+TODO
