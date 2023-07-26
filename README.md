@@ -10,8 +10,12 @@ On the other hand, the setup does not prevent malicious user, once (s)he gets ac
 
 ## Running the service
 
-1. start https://github.com/GenomicDataInfrastructure/starter-kit-storage-and-interfaces according to the instructions; _Demo_ mode will work out of the box, use of LS-AAI-mock of full LS AAI would require some tweaking
-2. start https://github.com/GenomicDataInfrastructure/starter-kit-htsget according to the instructions on the same machine
-3. run `docker-compose up` in a clone of this repo on the same machine; this step starts the Galaxy container and installs the custom tool `gdi_sk` from [test toolshed](https://testtoolshed.g2.bx.psu.edu/)https://testtoolshed.g2.bx.psu.edu/
+1. start [starter-kit-storage-and-interfaces](https://github.com/GenomicDataInfrastructure/starter-kit-storage-and-interfaces) according to the instructions; _Demo_ mode will work out of the box, use of LS-AAI-mock of full LS AAI would require some tweaking
+2. start [starter-kit-htsget](https://github.com/GenomicDataInfrastructure/starter-kit-htsget) according to the instructions on the same machine
+3. run `docker-compose up` in a clone of this repo on the same machine; this step starts the Galaxy container and installs the custom tool `gdi_sk` from [test toolshed](https://testtoolshed.g2.bx.psu.edu/)
 4. run `docker-compose restart galaxy`; this is required for Galaxy to pick up the tool's dependencies (htsget client) correctly
 
+## Running the GDI starter kit download tool
+
+1. Retrieve OICD bearer token; if the demo OIDC from starter-kit-storage-and-interfaces is running, the command
+   ```curl -k -s -S https://localhost:8080/tokens | jq -r '.[0]' > token.txt``` should work.
