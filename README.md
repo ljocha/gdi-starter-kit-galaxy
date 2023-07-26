@@ -24,6 +24,13 @@ docker-compose restart galaxy
 this is required for Galaxy to pick up the tool's dependencies (htsget client) correctly
 6. check Galaxy is running at http://localhost:8088/
 
+In some cases, due to a not-well-understood race condition during Galaxy startup, the tool does not get installed correctly (and it's not available in the _Get Data_ menu). If this happens, running
+```sh
+docker compose down
+docker compose up -d
+```
+again should fix the problem.
+
 ## Running the GDI starter kit download tool
 
 1. Retrieve OICD bearer token; if the demo OIDC from starter-kit-storage-and-interfaces is running, run
