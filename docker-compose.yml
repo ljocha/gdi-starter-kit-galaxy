@@ -45,7 +45,7 @@ services:
         condition: service_completed_successfully
     image: curlimages/curl
     command:
-      - yes
+      - 'true'
 
 
 networks:
