@@ -17,13 +17,14 @@ On the other hand, the setup does not prevent malicious user, once (s)he gets ac
 docker-compose up -d
 ```
 in a clone of this repo on the same machine; this step starts the Galaxy container and installs the custom tool `gdi_sk` from [test toolshed](https://testtoolshed.g2.bx.psu.edu/)
-5. run
+
+41. run
 ```sh
 docker-compose restart galaxy
 ```
 this is required for Galaxy to pick up the tool's dependencies (htsget client) correctly.
 
-6. check Galaxy is running at http://localhost:8088/
+5. check Galaxy is running at http://localhost:8088/
 
 In some cases, due to a not-well-understood race condition during Galaxy startup, the tool does not get installed correctly (and it's not available in the _Get Data_ menu). If this happens, running
 ```sh
