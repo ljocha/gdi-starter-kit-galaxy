@@ -18,7 +18,7 @@ docker-compose up -d
 ```
 in a clone of this repo on the same machine; this step starts the Galaxy container and installs the custom tool `gdi_sk` from [test toolshed](https://testtoolshed.g2.bx.psu.edu/)
 
-41. run
+4. run
 ```sh
 docker-compose restart galaxy
 ```
